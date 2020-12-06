@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="60dp"
+    tools:context="com.ilddang.activity.MainActivity">
+
+    <EditText
+        android:id="@+id/email_edit_text"
+        style="@style/EditTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        android:hint="이메일"/>
+
+    <LinearLayout
+        android:id="@+id/join_password_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/password_edit_text"
+            style="@style/EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/password"/>
+
+        <EditText
+            android:id="@+id/confirm_password_edit_text"
+            style="@style/EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/confirm_password"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/base_light_grey"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/name_edit_text"
+        style="@style/EditTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="이름"/>
+
+    <EditText
+        android:id="@+id/phone_number_edit_text"
+        style="@style/EditTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="휴대폰번호"/>
+
+    <Button
+        android:id="@+id/request_auth_num_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@drawable/rounded_bg"
+        android:backgroundTint="@color/base_grey"
+        android:textColor="@color/base_white"
+        android:text="인증번호 요청"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/base_light_grey"/>
+
+    <EditText
+        android:id="@+id/auth_num_edit_text"
+        style="@style/EditTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="@string/auth_num"/>
+
+    <Button
+        android:id="@+id/join_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@drawable/rounded_bg"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/base_white"
+        android:text="회원가입"/>
+
+</LinearLayout>

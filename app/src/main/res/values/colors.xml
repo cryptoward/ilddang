@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E93C3A</color>
+    <color name="colorAccent">#000000</color>
+    <color name="base_white">#FFFFFF</color>
+    <color name="base_black">#000000</color>
+    <color name="base_grey">#595758</color>
+    <color name="base_light_grey">#CACACA</color>
+    <color name="recruiting_color">#8FC320</color>
+
+</resources>

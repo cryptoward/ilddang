@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp">
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:textAlignment="center"
+        android:text="@string/find_id_password_message"/>
+
+    <Button
+        android:id="@+id/dialog_first_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/base_white"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@drawable/rounded_bg"
+        android:backgroundTint="@color/colorPrimary"/>
+
+    <Button
+        android:id="@+id/dialog_second_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/base_white"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@drawable/rounded_bg"
+        android:backgroundTint="@color/base_grey"/>
+
+</LinearLayout>
