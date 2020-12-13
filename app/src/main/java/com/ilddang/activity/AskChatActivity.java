@@ -25,6 +25,7 @@ public class AskChatActivity extends BaseActivity {
     private ChatItemAdapter mAdapter;
     private EditText mSendMessage;
     private RecyclerView mChatView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
