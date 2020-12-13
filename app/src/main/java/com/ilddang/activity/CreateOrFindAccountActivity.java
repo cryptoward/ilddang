@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ilddang.R;
 
-public class CreateOrFindAccountActivity extends AppCompatActivity {
+public class CreateOrFindAccountActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

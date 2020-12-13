@@ -1,6 +1,7 @@
 package com.ilddang.widget;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,18 +10,19 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ilddang.R;
+import com.ilddang.activity.NoticeDetailActivity;
 import com.ilddang.data.NoticeListItemData;
 import com.ilddang.util.Constants;
 
 import java.util.ArrayList;
 
-public class NoticeListItemAdapter extends RecyclerView.Adapter<NoticeListItemAdapter.ViewHolder> {
+public class NoticeItemAdapter extends RecyclerView.Adapter<NoticeItemAdapter.ViewHolder> {
     private ArrayList<NoticeListItemData> mData;
     private Context mContext;
 
-    public NoticeListItemAdapter(Context context, ArrayList<NoticeListItemData> list) {
+    public NoticeItemAdapter(Context context, ArrayList<NoticeListItemData> list) {
         mContext = context;
-        mData = list ;
+        mData = list;
     }
 
     @Override
@@ -28,7 +30,7 @@ public class NoticeListItemAdapter extends RecyclerView.Adapter<NoticeListItemAd
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View view = inflater.inflate(R.layout.notice_list_item, parent, false);
-        NoticeListItemAdapter.ViewHolder vh = new NoticeListItemAdapter.ViewHolder(view) ;
+        NoticeItemAdapter.ViewHolder vh = new NoticeItemAdapter.ViewHolder(view) ;
         return vh;
     }
 
@@ -43,7 +45,7 @@ public class NoticeListItemAdapter extends RecyclerView.Adapter<NoticeListItemAd
         holder.workPeriod.setText(data.workPeriod);
         if (data.currentStatus == Constants.CurrentStatus.RECRUITING) {
             holder.currentStatus.setText(mContext.getResources().getString(R.string.recruiting));
-            holder.currentStatus.setBackgroundColor(mContext.getResources().getColor(R.color.recruiting_color));
+            holder.currentStatus.setBackgroundColor(mContext.getResources().getColor(R.color.base_green));
         } else if (data.currentStatus == Constants.CurrentStatus.CLOSED) {
             holder.currentStatus.setText(mContext.getResources().getString(R.string.closed));
             holder.currentStatus.setBackgroundColor(mContext.getResources().getColor(R.color.base_grey));
@@ -66,11 +68,19 @@ public class NoticeListItemAdapter extends RecyclerView.Adapter<NoticeListItemAd
 
         ViewHolder(View itemView) {
             super(itemView) ;
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(mContext, NoticeDetailActivity.class);
+                    intent.putExtra("intent_notice_detail", mData.get(getAdapterPosition()));
+                    mContext.startActivity(intent);
+                }
+            });
             title = itemView.findViewById(R.id.notice_list_item_title);
             content = itemView.findViewById(R.id.notice_list_item_content);
             peopleNumber = itemView.findViewById(R.id.notice_list_item_people_number);
             distance = itemView.findViewById(R.id.notice_list_item_distance);
-            payment = itemView.findViewById(R.id.notice_list_item_payment);
+            payment = itemView.findViewById(R.id.notice_list_item_wage);
             workPeriod = itemView.findViewById(R.id.notice_list_item_work_period);
             currentStatus = itemView.findViewById(R.id.notice_list_item_current_status);
 

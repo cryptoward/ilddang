@@ -9,12 +9,15 @@ import android.location.Geocoder;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,19 +27,20 @@ import com.ilddang.R;
 import com.ilddang.data.NoticeListItemData;
 import com.ilddang.util.Constants;
 import com.ilddang.util.GpsTracker;
-import com.ilddang.widget.NoticeListItemAdapter;
+import com.ilddang.widget.NoticeItemAdapter;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class MainNoticeListActivity extends AppCompatActivity  {
+public class MainNoticeListActivity extends BaseActivity  {
     RecyclerView mNoticeListView;
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int PERMISSIONS_REQUEST_CODE = 100;
     String[] REQUIRED_PERMISSIONS  = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
     private GpsTracker gpsTracker;
+    private LinearLayout mMoreOptionLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +55,15 @@ public class MainNoticeListActivity extends AppCompatActivity  {
         NoticeListItemData data
                 = new NoticeListItemData("영진인테리어", "공사 끝난 건물 필름 시공자 4명급구",
                 2, "장항2동 2km", "일 8만원", "10.01 오전 03:00 ~ 당일 오후 18:30", Constants.CurrentStatus.RECRUITING);
+
+        NoticeListItemData data2
+                = new NoticeListItemData("장인타일", "화장실 타일 시공자 4명급구",
+                2, "장항2동 2km", "총 12만원", "10.01 오전 03:00 ~ 10.05 오후 18:30", Constants.CurrentStatus.CLOSED);
         ArrayList<NoticeListItemData> list = new ArrayList<>();
         list.add(data);
-        NoticeListItemAdapter adapter = new NoticeListItemAdapter(this, list);
+        list.add(data2);
+
+        NoticeItemAdapter adapter = new NoticeItemAdapter(this, list);
         mNoticeListView.setAdapter(adapter);
 
         if (!checkLocationServicesStatus()) {
@@ -73,6 +83,21 @@ public class MainNoticeListActivity extends AppCompatActivity  {
 
         TextView adressText = findViewById(R.id.address);
         adressText.setText(address);
+
+        final ToggleButton myInfoButton = findViewById(R.id.my_info_button);
+        myInfoButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                if (checked) {
+                    mMoreOptionLayout.setVisibility(View.VISIBLE);
+                    getWindow().getDecorView().setAlpha(0.5f);
+                } else {
+                    mMoreOptionLayout.setVisibility(View.GONE);
+                    getWindow().getDecorView().setAlpha(1f);
+                }
+            }
+        });
+        mMoreOptionLayout = findViewById(R.id.more_option_layout);
 
     }
 

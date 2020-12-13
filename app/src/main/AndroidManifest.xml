@@ -24,22 +24,27 @@
 
         <activity
             android:name=".activity.MainActivity"
-            android:theme="@style/AppThemeNoActionBar">
-        </activity>
-
+            android:theme="@style/AppThemeNoActionBar"/>
 
         <activity
             android:name=".activity.CreateOrFindAccountActivity"
-            android:theme="@style/AppThemeActionBar">
-
-        </activity>
+            android:theme="@style/AppThemeActionBar"/>
 
         <activity
             android:name=".activity.MainNoticeListActivity"
-            android:theme="@style/AppThemeActionBar">
+            android:theme="@style/AppThemeActionBar"/>
 
-        </activity>
+        <activity
+            android:name=".activity.NoticeDetailActivity"
+            android:theme="@style/AppThemeActionBar"/>
 
+        <activity
+            android:name=".activity.RequestJobActivity"
+            android:theme="@style/AppThemeActionBar"/>
+
+        <activity
+            android:name=".activity.AskChatActivity"
+            android:theme="@style/AppThemeActionBar"/>
 
     </application>
 

@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="?android:attr/actionBarSize"
     android:background="@color/base_light_grey"
     android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/address_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:paddingTop="10dp"
@@ -25,6 +27,7 @@
 
         <TextView
             android:id="@+id/address"
+            style="@style/RobotoRegular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/location_image"/>
@@ -38,7 +41,9 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+
             <TextView
+                style="@style/RobotoRegular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/base_white"
@@ -49,7 +54,127 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notice_list_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_layout"/>
 
 
-</LinearLayout>
+    <ToggleButton
+        android:id="@+id/my_info_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/circle_toggle_button"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="20dp"
+        android:textOff=""
+        android:textOn=""
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"/>
+
+    <LinearLayout
+        android:id="@+id/more_option_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone"
+        android:layout_above="@+id/my_info_button">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/app_notice"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/circle_button_bg_normal"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="20dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/plus_icon"
+                    app:tint="@color/base_white"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/base_white"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="4dp"
+                android:layout_toStartOf="@+id/app_notice"
+                android:text="@string/app_notice"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/one_on_one_ask"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/circle_button_bg_normal"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="20dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/plus_icon"
+                    app:tint="@color/base_white"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/base_white"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="4dp"
+                android:layout_toStartOf="@+id/one_on_one_ask"
+                android:text="@string/one_on_one_ask"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/my_info"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/circle_button_bg_normal"
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="20dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/plus_icon"
+                    app:tint="@color/base_white"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_centerVertical="true"
+                android:textColor="@color/base_white"
+                android:layout_toStartOf="@+id/my_info"
+                android:text="@string/my_info"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</RelativeLayout>

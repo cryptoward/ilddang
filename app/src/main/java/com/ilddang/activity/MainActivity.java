@@ -11,7 +11,7 @@ import android.widget.Button;
 
 import com.ilddang.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private Button mFindIdPassword;
     private Button mJoinBtn;
     private Button mLoginBtn;

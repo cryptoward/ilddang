@@ -11,7 +11,24 @@
     <string name="join">회원가입</string>
     <string name="recruiting">모집중</string>
     <string name="closed">마감</string>
-
+    <string name="notice_detail">공고 상세</string>
     <string name="pd_people_number">%d명</string>
+    <string name="view_more_image_num">더 보기 (+%d)</string>
+    <string name="application_career">지원 경력</string>
+    <string name="wage">급여</string>
+    <string name="request_job">구직신청</string>
+    <string name="request_job_do">구직 신청하기</string>
+    <string name="ask_chat">채팅문의</string>
+    <string name="chat">채팅</string>
+    <string name="ask_phone">전화문의</string>
+    <string name="recruitment_completed">모집이 완료되었습니다.</string>
+    <string name="age">나이</string>
+    <string name="gender">성별</string>
+    <string name="career">경력</string>
+    <string name="content_to_employer">구직 신청시 구인자에게 전달할 내용</string>
+    <string name="input_message">보낼 메세지를 입력하세요.</string>
+    <string name="app_notice">공지사항</string>
+    <string name="one_on_one_ask">1:1문의</string>
+    <string name="my_info">MY일땅</string>
 
 </resources>
