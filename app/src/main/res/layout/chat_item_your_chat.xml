@@ -24,6 +24,7 @@
         android:id="@+id/chat_time"
         android:layout_width="wrap_content"
         android:layout_toEndOf="@+id/content"
+        android:layout_marginStart="3dp"
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content"/>
 </RelativeLayout>

@@ -46,6 +46,14 @@
             android:name=".activity.AskChatActivity"
             android:theme="@style/AppThemeActionBar"/>
 
+        <activity
+            android:name=".activity.MyProfileActivity"
+            android:theme="@style/AppThemeActionBar"/>
+
+        <activity
+            android:name=".activity.MyJobListActivity"
+            android:theme="@style/AppThemeActionBar"/>
+
     </application>
 
 </manifest>

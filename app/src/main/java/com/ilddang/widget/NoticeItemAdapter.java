@@ -13,6 +13,7 @@ import com.ilddang.R;
 import com.ilddang.activity.NoticeDetailActivity;
 import com.ilddang.data.NoticeListItemData;
 import com.ilddang.util.Constants;
+import com.ilddang.util.Util;
 
 import java.util.ArrayList;
 
@@ -43,13 +44,8 @@ public class NoticeItemAdapter extends RecyclerView.Adapter<NoticeItemAdapter.Vi
         holder.distance.setText(data.distance);
         holder.payment.setText(data.payment);
         holder.workPeriod.setText(data.workPeriod);
-        if (data.currentStatus == Constants.CurrentStatus.RECRUITING) {
-            holder.currentStatus.setText(mContext.getResources().getString(R.string.recruiting));
-            holder.currentStatus.setBackgroundColor(mContext.getResources().getColor(R.color.base_green));
-        } else if (data.currentStatus == Constants.CurrentStatus.CLOSED) {
-            holder.currentStatus.setText(mContext.getResources().getString(R.string.closed));
-            holder.currentStatus.setBackgroundColor(mContext.getResources().getColor(R.color.base_grey));
-        }
+        holder.currentStatus.setText(data.currentStatus);
+        holder.currentStatus.setBackgroundColor(mContext.getResources().getColor(Util.getStatusColor(data.currentStatus)));
     }
 
     @Override

@@ -2,8 +2,12 @@ package com.ilddang.util;
 
 public class Constants {
     public interface CurrentStatus {
-        public int RECRUITING = 0;
-        public int CLOSED = 1;
+        public String RECRUITING = "모집중";
+        public String CLOSED = "마감";
+        public String SCHEDULED = "예정";
+        public String CANCELED = "취소";
+        public String COMPLETE = "완료";
+        public String ABSENCE = "불참";
     }
 
     public interface ChatType {

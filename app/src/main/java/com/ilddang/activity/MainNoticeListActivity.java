@@ -11,7 +11,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -23,6 +25,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.ilddang.R;
 import com.ilddang.data.NoticeListItemData;
 import com.ilddang.util.Constants;
@@ -41,11 +44,20 @@ public class MainNoticeListActivity extends BaseActivity  {
     String[] REQUIRED_PERMISSIONS  = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
     private GpsTracker gpsTracker;
     private LinearLayout mMoreOptionLayout;
+    private LinearLayout mProfileLayout;
+    private ImageView mProfileImage;
+    private TextView mProfileHello;
+    private RelativeLayout mAlphaLayout;
+    private RelativeLayout mMyIlddang;
+    private RelativeLayout mOneononeAsk;
+    private RelativeLayout mAppNotice;
+    private ToggleButton mMyInfoButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_notice_list_activity);
+        mAlphaLayout = findViewById(R.id.alpha_layout);
         mNoticeListView = findViewById(R.id.notice_list_recycler_view);
 
         LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -84,23 +96,44 @@ public class MainNoticeListActivity extends BaseActivity  {
         TextView adressText = findViewById(R.id.address);
         adressText.setText(address);
 
-        final ToggleButton myInfoButton = findViewById(R.id.my_info_button);
-        myInfoButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mMyInfoButton = findViewById(R.id.my_info_button);
+        mMyInfoButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 if (checked) {
+                    mAlphaLayout.setVisibility(View.VISIBLE);
                     mMoreOptionLayout.setVisibility(View.VISIBLE);
-                    getWindow().getDecorView().setAlpha(0.5f);
+                    mProfileLayout.setVisibility(View.VISIBLE);
+                    Glide.with(MainNoticeListActivity.this)
+                            .load(R.drawable.default_profile_image)
+                            .circleCrop()
+                            .into(mProfileImage);
+                    //TODO: get profile name from server
+                    mProfileHello.setText(getResources().getString(R.string.profile_hello, "슈퍼맨"));
                 } else {
-                    mMoreOptionLayout.setVisibility(View.GONE);
-                    getWindow().getDecorView().setAlpha(1f);
+                    setTurnOffAlpha();
                 }
             }
         });
         mMoreOptionLayout = findViewById(R.id.more_option_layout);
-
+        mProfileLayout = findViewById(R.id.profile_layout);
+        mProfileImage = findViewById(R.id.profile_image);
+        mProfileHello = findViewById(R.id.profile_hello);
     }
 
+    private void setTurnOffAlpha() {
+        mAlphaLayout.setVisibility(View.GONE);
+        mMoreOptionLayout.setVisibility(View.GONE);
+        mProfileLayout.setVisibility(View.GONE);
+    }
+
+    public void onButtonClick(View view) {
+        mMyInfoButton.performClick();
+        if (view.getId() == R.id.my_ilddang) {
+            Intent intent = new Intent(this, MyProfileActivity.class);
+            startActivity(intent);
+        }
+    }
 
     @Override
     public void onRequestPermissionsResult(int permsRequestCode,

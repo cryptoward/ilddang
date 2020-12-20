@@ -82,6 +82,7 @@
         android:background="@drawable/rounded_bg"
         android:backgroundTint="@color/colorPrimary"
         android:textAlignment="center"
+        android:gravity="center"
         android:textColor="@color/base_white"
         android:textSize="20dp"
         android:text="@string/request_job_do"/>

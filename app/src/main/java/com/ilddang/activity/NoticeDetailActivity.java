@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.ilddang.R;
 import com.ilddang.data.NoticeListItemData;
 import com.ilddang.util.Constants;
+import com.ilddang.util.Util;
 
 public class NoticeDetailActivity extends BaseActivity {
     private NoticeListItemData mData;
@@ -46,12 +47,14 @@ public class NoticeDetailActivity extends BaseActivity {
         people.setText(getResources().getString(R.string.pd_people_number, mData.peopleNumber));
         distance.setText(mData.distance);
         workPeriod.setText(mData.workPeriod);
-        if (mData.currentStatus == Constants.CurrentStatus.RECRUITING) {
-            currentStatus.setText(getResources().getString(R.string.recruiting));
-            currentStatus.setBackgroundColor(getResources().getColor(R.color.base_green));
-        } else if (mData.currentStatus == Constants.CurrentStatus.CLOSED) {
-            currentStatus.setText(getResources().getString(R.string.closed));
-            currentStatus.setBackgroundColor(getResources().getColor(R.color.base_grey));
+        currentStatus.setText(mData.currentStatus);
+        currentStatus.setBackgroundColor(getResources().getColor(Util.getStatusColor(mData.currentStatus)));
+
+        if (mData.currentStatus.equals(Constants.CurrentStatus.CLOSED)) {
+            TextView recruitingCompleted = (TextView) findViewById(R.id.recruiting_completed);
+            recruitingCompleted.setVisibility(View.VISIBLE);
+            LinearLayout requestLayout = (LinearLayout) findViewById(R.id.request_job_layout);
+            requestLayout.setVisibility(View.GONE);
         }
 
         mCareer = (TextView) findViewById(R.id.career);

@@ -10,9 +10,9 @@ public class NoticeListItemData implements Parcelable {
     public String distance;
     public String payment;
     public String workPeriod;
-    public int currentStatus;
+    public String currentStatus;
 
-    public NoticeListItemData(String title, String content, int peopleNumber, String distance, String payment, String workPeriod, int currentStatus) {
+    public NoticeListItemData(String title, String content, int peopleNumber, String distance, String payment, String workPeriod, String currentStatus) {
         this.title = title;
         this.content = content;
         this.peopleNumber = peopleNumber;
@@ -29,7 +29,7 @@ public class NoticeListItemData implements Parcelable {
         distance = in.readString();
         payment = in.readString();
         workPeriod = in.readString();
-        currentStatus = in.readInt();
+        currentStatus = in.readString();
     }
 
     public static final Creator<NoticeListItemData> CREATOR = new Creator<NoticeListItemData>() {
@@ -57,6 +57,6 @@ public class NoticeListItemData implements Parcelable {
         parcel.writeString(distance);
         parcel.writeString(payment);
         parcel.writeString(workPeriod);
-        parcel.writeInt(currentStatus);
+        parcel.writeString(currentStatus);
     }
 }

@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ilddang.R;
 import com.ilddang.data.NoticeListItemData;
 import com.ilddang.util.Constants;
+import com.ilddang.util.Util;
 
 public class RequestJobActivity extends BaseActivity {
     private NoticeListItemData mData;
@@ -46,14 +47,8 @@ public class RequestJobActivity extends BaseActivity {
         people.setText(getResources().getString(R.string.pd_people_number, mData.peopleNumber));
         distance.setText(mData.distance);
         workPeriod.setText(mData.workPeriod);
-        if (mData.currentStatus == Constants.CurrentStatus.RECRUITING) {
-            currentStatus.setText(getResources().getString(R.string.recruiting));
-            currentStatus.setBackgroundColor(getResources().getColor(R.color.base_green));
-        } else if (mData.currentStatus == Constants.CurrentStatus.CLOSED) {
-            currentStatus.setText(getResources().getString(R.string.closed));
-            currentStatus.setBackgroundColor(getResources().getColor(R.color.base_grey));
-        }
-
+        currentStatus.setText(mData.currentStatus);
+        currentStatus.setBackgroundColor(getResources().getColor(Util.getStatusColor(mData.currentStatus)));
 
         Spinner ageSpinner = (Spinner) findViewById(R.id.age_spinner);
         ArrayAdapter<String> ageAdapter = new ArrayAdapter<String>(

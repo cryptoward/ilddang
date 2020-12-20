@@ -41,6 +41,16 @@
     </style>
 
 
+    <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
+        <item name="tabBackground">@drawable/tab_background</item>
+        <item name="tabIndicatorColor">@color/colorPrimary</item>
+        <item name="tabIndicatorHeight">6dp</item>
+    </style>
+
+    <style name="tab_text" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">18dp</item>
+    </style>
+
     <style name="RobotoRegular">
         <item name="android:fontFamily">sans-serif</item>
     </style>

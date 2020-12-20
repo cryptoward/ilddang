@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
     android:layout_marginTop="?android:attr/actionBarSize"
     android:background="@color/base_light_grey"
     android:orientation="vertical">
@@ -57,7 +58,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/address_layout"/>
 
-
     <ToggleButton
         android:id="@+id/my_info_button"
         android:layout_width="40dp"
@@ -70,6 +70,45 @@
         android:textOn=""
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"/>
+
+    <RelativeLayout
+        android:id="@+id/alpha_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="#80000000"/>
+
+    <LinearLayout
+        android:id="@+id/profile_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/circle_profile_background"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/profile_hello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            android:textColor="@color/base_white"/>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/more_option_layout"
@@ -149,7 +188,7 @@
             android:layout_height="wrap_content">
 
             <RelativeLayout
-                android:id="@+id/my_info"
+                android:id="@+id/my_ilddang"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
@@ -157,7 +196,8 @@
                 android:gravity="center"
                 android:layout_centerVertical="true"
                 android:layout_marginBottom="10dp"
-                android:layout_marginEnd="20dp">
+                android:layout_marginEnd="20dp"
+                android:onClick="onButtonClick">
 
                 <ImageView
                     android:layout_width="20dp"
@@ -172,9 +212,9 @@
                 android:layout_marginEnd="4dp"
                 android:layout_centerVertical="true"
                 android:textColor="@color/base_white"
-                android:layout_toStartOf="@+id/my_info"
+                android:layout_toStartOf="@+id/my_ilddang"
                 android:text="@string/my_info"/>
         </RelativeLayout>
-
     </LinearLayout>
+
 </RelativeLayout>

@@ -160,15 +160,36 @@
             android:textSize="16dp"/>
 
         <TextView
+            android:id="@+id/recruiting_completed"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_bg"
+            android:backgroundTint="@color/base_grey"
+            android:gravity="center"
             android:visibility="gone"
+            android:textAlignment="center"
             android:textColor="@color/base_white"
             android:text="@string/recruitment_completed"/>
+
+        <TextView
+            android:id="@+id/cancel_job"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_bg"
+            android:backgroundTint="@color/colorPrimary"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textAlignment="center"
+            android:textColor="@color/base_white"
+            android:text="@string/job_cancel"/>
 
         <LinearLayout
             android:id="@+id/request_job_layout"

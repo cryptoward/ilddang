@@ -15,9 +15,12 @@ import com.ilddang.R;
 import com.ilddang.data.ChatData;
 import com.ilddang.data.NoticeListItemData;
 import com.ilddang.util.Constants;
+import com.ilddang.util.Util;
 import com.ilddang.widget.ChatItemAdapter;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class AskChatActivity extends BaseActivity {
     private NoticeListItemData mData;
@@ -50,13 +53,8 @@ public class AskChatActivity extends BaseActivity {
         people.setText(getResources().getString(R.string.pd_people_number, mData.peopleNumber));
         distance.setText(mData.distance);
         workPeriod.setText(mData.workPeriod);
-        if (mData.currentStatus == Constants.CurrentStatus.RECRUITING) {
-            currentStatus.setText(getResources().getString(R.string.recruiting));
-            currentStatus.setBackgroundColor(getResources().getColor(R.color.base_green));
-        } else if (mData.currentStatus == Constants.CurrentStatus.CLOSED) {
-            currentStatus.setText(getResources().getString(R.string.closed));
-            currentStatus.setBackgroundColor(getResources().getColor(R.color.base_grey));
-        }
+        currentStatus.setText(mData.currentStatus);
+        currentStatus.setBackgroundColor(getResources().getColor(Util.getStatusColor(mData.currentStatus)));
         LinearLayout requestJobButton = itemView.findViewById(R.id.request_job_button_in_item);
         requestJobButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +70,8 @@ public class AskChatActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 if (mSendMessage.getText() != null && !mSendMessage.getText().toString().isEmpty()) {
-                    mChatList.add(new ChatData(Constants.ChatType.MY_CHAT, mSendMessage.getText().toString(), "11:47"));
+                    Date date = Calendar.getInstance().getTime();
+                    mChatList.add(new ChatData(Constants.ChatType.MY_CHAT, mSendMessage.getText().toString(), date.getHours() + ":" + date.getMinutes()));
                     mAdapter.notifyDataSetChanged();
                     mChatView.smoothScrollToPosition(mAdapter.getItemCount() - 1);
                     mSendMessage.setText("");

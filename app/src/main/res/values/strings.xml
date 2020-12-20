@@ -9,8 +9,6 @@
     <string name="find_email">이메일 찾기</string>
     <string name="find_password">비밀번호 찾기</string>
     <string name="join">회원가입</string>
-    <string name="recruiting">모집중</string>
-    <string name="closed">마감</string>
     <string name="notice_detail">공고 상세</string>
     <string name="pd_people_number">%d명</string>
     <string name="view_more_image_num">더 보기 (+%d)</string>
@@ -22,6 +20,7 @@
     <string name="chat">채팅</string>
     <string name="ask_phone">전화문의</string>
     <string name="recruitment_completed">모집이 완료되었습니다.</string>
+    <string name="job_cancel">구직 취소하기</string>
     <string name="age">나이</string>
     <string name="gender">성별</string>
     <string name="career">경력</string>
@@ -30,5 +29,13 @@
     <string name="app_notice">공지사항</string>
     <string name="one_on_one_ask">1:1문의</string>
     <string name="my_info">MY일땅</string>
+    <string name="profile_hello">%s 님 \n 안녕하세요?</string>
+    <string name="my_job_list">나의 구직 목록</string>
+    <string name="my_job">나의 구직</string>
+    <string name="my_ilddang_setting">MY일땅 설정</string>
+    <string name="my_activity_score">내 활동 점수</string>
+    <string name="my_job_to_see_list">리스트로 보기</string>
+    <string name="my_job_to_see_calendar">달력으로 보기</string>
+
 
 </resources>
