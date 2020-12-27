@@ -39,7 +39,7 @@ public class MyJobListFragment extends Fragment {
         //TODO: get data from server
         NoticeListItemData data
                 = new NoticeListItemData("영진인테리어", "공사 끝난 건물 필름 시공자 4명급구",
-                2, "장항2동 2km", "일 8만원", "10.01 오전 03:00 ~ 당일 오후 18:30", Constants.CurrentStatus.RECRUITING);
+                2, "장항2동 2km", "일 8만원", "10.01 오전 03:00 ~ 당일 오후 18:30", Constants.CurrentStatus.SCHEDULED);
 
         NoticeListItemData data2
                 = new NoticeListItemData("장인타일", "화장실 타일 시공자 4명급구",
@@ -47,12 +47,13 @@ public class MyJobListFragment extends Fragment {
 
         NoticeListItemData data3
                 = new NoticeListItemData("하늘건설", "공사 끝난 건물 필름 시공자 4명 급구",
-                2, "장항2동 2km", "총 12만원", "10.01 오전 03:00 ~ 10.05 오후 18:30", Constants.CurrentStatus.COMPLETE);
+                3, "장항2동 2km", "총 12만원", "10.01 오전 03:00 ~ 10.05 오후 18:30", Constants.CurrentStatus.COMPLETE);
         ArrayList<NoticeListItemData> list = new ArrayList<>();
         list.add(data);
         list.add(data2);
+        list.add(data3);
 
-        NoticeItemAdapter adapter = new NoticeItemAdapter(getActivity(), list);
+        NoticeItemAdapter adapter = new NoticeItemAdapter(getActivity(), list, false);
         recyclerView.setAdapter(adapter);
 
         return view;

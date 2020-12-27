@@ -27,7 +27,7 @@ public class RequestJobActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.request_job_activity);
-        setTitle(getResources().getString(R.string.request_job));
+        createActionBar(getResources().getString(R.string.request_job));
 
         Intent intent = getIntent();
         if (intent != null ) {

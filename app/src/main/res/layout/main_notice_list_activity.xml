@@ -11,7 +11,7 @@
     <RelativeLayout
         android:id="@+id/address_layout"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
@@ -22,8 +22,12 @@
 
         <ImageView
             android:id="@+id/location_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="5dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/location_icon"
             android:layout_alignParentStart="true"/>
 
         <TextView
@@ -31,23 +35,33 @@
             style="@style/RobotoRegular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/base_black"
+            android:textSize="18dp"
             android:layout_toEndOf="@+id/location_image"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_alignParentEnd="true"
-            android:background="@color/colorPrimary">
+            android:layout_marginEnd="20dp"
+            android:padding="8dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:background="@drawable/location_rounded_bg">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/location_setting"/>
 
             <TextView
                 style="@style/RobotoRegular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/base_white"
+                android:layout_gravity="center_vertical"
+                android:includeFontPadding="false"
+                android:textSize="13dp"
                 android:text="위치 설정하기"/>
         </LinearLayout>
     </RelativeLayout>
@@ -60,8 +74,8 @@
 
     <ToggleButton
         android:id="@+id/my_info_button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:background="@drawable/circle_toggle_button"
         android:gravity="center"
         android:layout_marginBottom="20dp"
@@ -76,7 +90,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
-        android:background="#80000000"/>
+        android:background="@color/item_alpha_color"/>
 
     <LinearLayout
         android:id="@+id/profile_layout"
@@ -116,6 +130,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_alignParentEnd="true"
+        android:layout_marginEnd="25dp"
         android:visibility="gone"
         android:layout_above="@+id/my_info_button">
 
@@ -131,13 +146,12 @@
                 android:background="@drawable/circle_button_bg_normal"
                 android:layout_centerVertical="true"
                 android:gravity="center"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="20dp">
+                android:layout_marginBottom="10dp">
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/plus_icon"
+                    android:src="@drawable/app_notice_icon"
                     app:tint="@color/base_white"/>
             </RelativeLayout>
 
@@ -163,13 +177,12 @@
                 android:background="@drawable/circle_button_bg_normal"
                 android:layout_centerVertical="true"
                 android:gravity="center"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="20dp">
+                android:layout_marginBottom="10dp">
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/plus_icon"
+                    android:src="@drawable/question_icon"
                     app:tint="@color/base_white"/>
             </RelativeLayout>
 
@@ -196,13 +209,12 @@
                 android:gravity="center"
                 android:layout_centerVertical="true"
                 android:layout_marginBottom="10dp"
-                android:layout_marginEnd="20dp"
                 android:onClick="onButtonClick">
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/plus_icon"
+                    android:src="@drawable/setting_icon"
                     app:tint="@color/base_white"/>
             </RelativeLayout>
 

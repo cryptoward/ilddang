@@ -19,7 +19,7 @@ public class MyProfileActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_profile_activity);
-        setTitle(getResources().getString(R.string.my_info));
+        createActionBar(getResources().getString(R.string.my_info));
 
         mProfileImage = findViewById(R.id.profile_image);
         mProfileName = findViewById(R.id.profile_name);
@@ -36,9 +36,11 @@ public class MyProfileActivity extends BaseActivity {
             Intent intent = new Intent(this, MyJobListActivity.class);
             startActivity(intent);
         } else if (view.getId() == R.id.my_ilddang_layout) {
-
+            Intent intent = new Intent(this, MyProfileSettingActivity.class);
+            startActivity(intent);
         } else if (view.getId() == R.id.my_activity_score_layout) {
-
+            Intent intent = new Intent(this, MyActivityScoreActivity.class);
+            startActivity(intent);
         }
 
     }

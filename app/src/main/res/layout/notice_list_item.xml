@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="150dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:foreground="?attr/selectableItemBackground"
     android:background="@color/base_white"
-    android:paddingStart="20dp"
-    android:paddingEnd="20dp"
-    android:paddingTop="20dp"
-    android:paddingBottom="20dp"
     android:layout_marginBottom="5dp"
     android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_marginBottom="10dp">
 
         <LinearLayout
@@ -22,13 +24,47 @@
             android:layout_alignParentStart="true"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/notice_list_item_title"
-                style="@style/RobotoMedium"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/base_black"
-                android:textSize="20dp"/>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/notice_list_item_title"
+                    style="@style/RobotoMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/base_black"
+                    android:textSize="20dp"/>
+
+                <LinearLayout
+                    android:id="@+id/notice_item_view_count_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:visibility="gone"
+                    android:background="@drawable/rounded_bg_small"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/view_icon"/>
+
+                    <TextView
+                        android:id="@+id/notice_item_view_count"
+                        style="@style/RobotoRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/base_white"
+                        android:textSize="14dp"/>
+                </LinearLayout>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/notice_list_item_content"
@@ -41,12 +77,14 @@
         <TextView
             android:id="@+id/notice_list_item_current_status"
             style="@style/RobotoRegular"
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
+            android:textAlignment="center"
+            android:background="@drawable/rounded_bg_small"
             android:textColor="@color/base_white"
             android:layout_alignParentEnd="true"/>
     </RelativeLayout>
@@ -54,6 +92,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_below="@+id/top_layout"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -67,7 +109,9 @@
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/item_people"/>
 
                 <TextView
                     android:id="@+id/notice_list_item_people_number"
@@ -78,7 +122,9 @@
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/item_location"/>
 
                 <TextView
                     android:id="@+id/notice_list_item_distance"
@@ -89,21 +135,34 @@
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/item_money"/>
 
                 <TextView
                     android:id="@+id/notice_list_item_wage"
                     style="@style/RobotoRegular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/notice_list_item_work_period"
-                style="@style/RobotoRegular"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/item_time"/>
+
+                <TextView
+                    android:id="@+id/notice_list_item_work_period"
+                    style="@style/RobotoRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -130,4 +189,33 @@
         </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+    <RelativeLayout
+        android:id="@+id/already_applied_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@color/item_alpha_color">
+
+        <TextView
+            android:id="@+id/already_applied"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="35dp"
+            android:layout_centerHorizontal="true"
+            android:text="이미 지원한 공고입니다."
+            android:textSize="20dp"
+            android:textColor="@color/base_white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/already_applied"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            android:text="지원 내역은 [나의 구직] 메뉴에서 확인 가능합니다."
+            android:textSize="17dp"
+            android:textColor="@color/base_white"/>
+    </RelativeLayout>
+
+</RelativeLayout>

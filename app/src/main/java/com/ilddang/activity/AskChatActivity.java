@@ -33,7 +33,7 @@ public class AskChatActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ask_chat_activity);
-        setTitle(getResources().getString(R.string.chat));
+        createActionBar(getResources().getString(R.string.chat));
 
         Intent intent = getIntent();
         if (intent != null ) {

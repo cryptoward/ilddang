@@ -5,7 +5,11 @@
             <shape
                 android:useLevel="false">
                 <corners android:radius="20dp"/>
-                <solid android:color="@color/colorPrimary"/>
+                <gradient
+                    android:startColor="@color/colorPrimary"
+                    android:endColor="@color/colorPrimaryDark"
+                    android:centerY="1.0"
+                    android:angle="270"/>
             </shape>
         </clip>
     </item>
@@ -13,7 +17,7 @@
         <clip>
             <shape
                 android:shape="line">
-                <solid android:color="@color/colorPrimary"/>
+                <solid android:color="@color/base_light_grey"/>
             </shape>
         </clip>
     </item>

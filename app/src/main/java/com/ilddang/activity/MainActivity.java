@@ -1,18 +1,18 @@
 package com.ilddang.activity;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.ilddang.R;
 
 public class MainActivity extends BaseActivity {
-    private Button mFindIdPassword;
+    private TextView mFindIdPassword;
     private Button mJoinBtn;
     private Button mLoginBtn;
 
@@ -28,6 +28,7 @@ public class MainActivity extends BaseActivity {
                 LayoutInflater inflater = getLayoutInflater();
                 View view = inflater.inflate(R.layout.base_dialog_fragment, null);
                 builder.setView(view);
+
                 final Button email = (Button) view.findViewById(R.id.dialog_first_button);
                 final Button password = (Button) view.findViewById(R.id.dialog_second_button);
                 email.setText(getResources().getString(R.string.email));
@@ -38,7 +39,7 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(MainActivity.this, CreateOrFindAccountActivity.class);
-                        intent.putExtra("intent_email_or_password_or_join", "email");
+                        intent.putExtra("intent_email_or_password_or_join_or_phone", "email");
                         startActivity(intent);
                         dialog.dismiss();
                     }
@@ -47,7 +48,7 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(MainActivity.this, CreateOrFindAccountActivity.class);
-                        intent.putExtra("intent_email_or_password_or_join", "password");
+                        intent.putExtra("intent_email_or_password_or_join_or_phone", "password");
                         startActivity(intent);
                         dialog.dismiss();
 
@@ -61,7 +62,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, CreateOrFindAccountActivity.class);
-                intent.putExtra("intent_email_or_password_or_join", "join");
+                intent.putExtra("intent_email_or_password_or_join_or_phone", "join");
                 startActivity(intent);
             }
         });

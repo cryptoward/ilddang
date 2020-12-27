@@ -18,7 +18,7 @@
     </style>
 
     <style name="ActionButtonOverflow" parent="@style/Widget.AppCompat.ActionButton.Overflow">
-        <item name="android:src">@drawable/app_logo</item>
+        <item name="android:src">@drawable/app_logo_small</item>
     </style>
 
 
@@ -39,7 +39,6 @@
         <item name="android:paddingBottom">15dp</item>
         <item name="android:background">@drawable/edittext_border</item>
     </style>
-
 
     <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
         <item name="tabBackground">@drawable/tab_background</item>

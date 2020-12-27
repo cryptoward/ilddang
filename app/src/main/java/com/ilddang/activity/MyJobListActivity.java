@@ -21,7 +21,7 @@ public class MyJobListActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_job_list_activity);
-        setTitle(getResources().getString(R.string.my_job));
+        createActionBar(getResources().getString(R.string.my_job));
 
         mTabLayout = findViewById(R.id.tab_layout);
         setViewPager();

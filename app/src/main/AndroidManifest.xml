@@ -51,7 +51,15 @@
             android:theme="@style/AppThemeActionBar"/>
 
         <activity
+            android:name=".activity.MyProfileSettingActivity"
+            android:theme="@style/AppThemeActionBar"/>
+
+        <activity
             android:name=".activity.MyJobListActivity"
+            android:theme="@style/AppThemeActionBar"/>
+
+        <activity
+            android:name=".activity.MyActivityScoreActivity"
             android:theme="@style/AppThemeActionBar"/>
 
     </application>

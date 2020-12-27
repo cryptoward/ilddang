@@ -10,9 +10,10 @@
         android:layout_height="100dp"
         android:layout_marginTop="200dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/app_logo"/>
+        android:src="@drawable/app_logo_big"/>
 
     <ProgressBar
+        android:id="@+id/splash_progress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -20,8 +21,27 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
         android:layout_below="@+id/app_logo"
-        android:progress="100"
         android:progressDrawable="@drawable/splash_progressbar"
         style="@android:style/Widget.ProgressBar.Horizontal"/>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/colorPrimary"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/base_white"
+            android:text="Copyright Ⓒ 일땅 All Rights Reserved."/>
+    </LinearLayout>
 
 </RelativeLayout>

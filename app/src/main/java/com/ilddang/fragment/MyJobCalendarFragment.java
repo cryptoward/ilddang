@@ -53,7 +53,7 @@ public class MyJobCalendarFragment extends Fragment {
         list.add(data);
         list.add(data2);
 
-        NoticeItemAdapter adapter = new NoticeItemAdapter(getActivity(), list);
+        NoticeItemAdapter adapter = new NoticeItemAdapter(getActivity(), list, false);
         recyclerView.setAdapter(adapter);
 
         return view;

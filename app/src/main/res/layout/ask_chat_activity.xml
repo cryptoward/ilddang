@@ -25,11 +25,11 @@
             android:gravity="center"
             android:background="@color/colorPrimary"
             android:layout_width="50dp"
-            android:layout_height="50dp">
+            android:layout_height="60dp">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/send_icon"
                 app:tint="@color/base_white" />
         </RelativeLayout>
@@ -37,7 +37,15 @@
         <EditText
             android:id="@+id/send_message"
             android:layout_toStartOf="@+id/send_button"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             style="@style/EditTextStyle"
+            android:background="@drawable/location_rounded_bg"
+            android:backgroundTint="@color/base_white"
+            android:includeFontPadding="false"
+            android:textSize="18dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/input_message"/>

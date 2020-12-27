@@ -8,18 +8,22 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.view.Menu;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -52,11 +56,13 @@ public class MainNoticeListActivity extends BaseActivity  {
     private RelativeLayout mOneononeAsk;
     private RelativeLayout mAppNotice;
     private ToggleButton mMyInfoButton;
+    private View mActionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_notice_list_activity);
+        createSpinnerActionBar();
         mAlphaLayout = findViewById(R.id.alpha_layout);
         mNoticeListView = findViewById(R.id.notice_list_recycler_view);
 
@@ -71,11 +77,16 @@ public class MainNoticeListActivity extends BaseActivity  {
         NoticeListItemData data2
                 = new NoticeListItemData("장인타일", "화장실 타일 시공자 4명급구",
                 2, "장항2동 2km", "총 12만원", "10.01 오전 03:00 ~ 10.05 오후 18:30", Constants.CurrentStatus.CLOSED);
+
+        NoticeListItemData data3
+                = new NoticeListItemData("하늘건설", "공사 끝난건물 필름 시공자 4명 급구",
+                2, "장항2동 2km", "총 12만원", "10.01 오전 03:00 ~ 10.05 오후 18:30", Constants.CurrentStatus.SCHEDULED);
         ArrayList<NoticeListItemData> list = new ArrayList<>();
         list.add(data);
         list.add(data2);
+        list.add(data3);
 
-        NoticeItemAdapter adapter = new NoticeItemAdapter(this, list);
+        NoticeItemAdapter adapter = new NoticeItemAdapter(this, list, true);
         mNoticeListView.setAdapter(adapter);
 
         if (!checkLocationServicesStatus()) {
@@ -94,7 +105,9 @@ public class MainNoticeListActivity extends BaseActivity  {
         String address = getCurrentAddress(latitude, longitude);
 
         TextView adressText = findViewById(R.id.address);
-        adressText.setText(address);
+        if (address.contains("대한민국")) {
+            adressText.setText(address.replace("대한민국", ""));
+        }
 
         mMyInfoButton = findViewById(R.id.my_info_button);
         mMyInfoButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -119,6 +132,35 @@ public class MainNoticeListActivity extends BaseActivity  {
         mProfileLayout = findViewById(R.id.profile_layout);
         mProfileImage = findViewById(R.id.profile_image);
         mProfileHello = findViewById(R.id.profile_hello);
+    }
+
+    private void createSpinnerActionBar() {
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowHomeEnabled(false);
+
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        mActionBar = inflater.inflate(R.layout.custom_actionbar, null);
+        TextView titleView = mActionBar.findViewById(R.id.action_bar_title);
+        titleView.setVisibility(View.GONE);
+        ImageButton backButton = mActionBar.findViewById(R.id.action_bar_back_button);
+        backButton.setVisibility(View.GONE);
+
+        Spinner spinner = mActionBar.findViewById(R.id.action_bar_spinner);
+        spinner.setVisibility(View.VISIBLE);
+        String[] alignArray = {"최신순", "거리순"};
+
+        ArrayAdapter<String> alignAdapter = new ArrayAdapter<String>(
+                this, android.R.layout.simple_spinner_item, alignArray
+        );
+        alignAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(alignAdapter);
+
+        getSupportActionBar().setCustomView(mActionBar);
+
+        Toolbar parent = (Toolbar) mActionBar.getParent();
+        parent.setContentInsetsAbsolute(0, 0);
     }
 
     private void setTurnOffAlpha() {
@@ -247,12 +289,5 @@ public class MainNoticeListActivity extends BaseActivity  {
 
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
                 || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_item, menu) ;
-
-        return true ;
     }
 }

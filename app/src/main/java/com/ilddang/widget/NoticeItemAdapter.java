@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,10 +21,12 @@ import java.util.ArrayList;
 public class NoticeItemAdapter extends RecyclerView.Adapter<NoticeItemAdapter.ViewHolder> {
     private ArrayList<NoticeListItemData> mData;
     private Context mContext;
+    private boolean mIsMain;
 
-    public NoticeItemAdapter(Context context, ArrayList<NoticeListItemData> list) {
+    public NoticeItemAdapter(Context context, ArrayList<NoticeListItemData> list, boolean isMain) {
         mContext = context;
         mData = list;
+        mIsMain = isMain;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class NoticeItemAdapter extends RecyclerView.Adapter<NoticeItemAdapter.Vi
         holder.workPeriod.setText(data.workPeriod);
         holder.currentStatus.setText(data.currentStatus);
         holder.currentStatus.setBackgroundColor(mContext.getResources().getColor(Util.getStatusColor(data.currentStatus)));
+        if (mIsMain && data.currentStatus.equals(Constants.CurrentStatus.SCHEDULED)) {
+            holder.currentStatus.setText(Constants.CurrentStatus.RECRUITING);
+            holder.alreadyAplied.setVisibility(View.VISIBLE);
+            holder.itemView.setClickable(false);
+        }
     }
 
     @Override
@@ -61,6 +69,7 @@ public class NoticeItemAdapter extends RecyclerView.Adapter<NoticeItemAdapter.Vi
         TextView payment;
         TextView workPeriod;
         TextView currentStatus;
+        RelativeLayout alreadyAplied;
 
         ViewHolder(View itemView) {
             super(itemView) ;
@@ -79,6 +88,7 @@ public class NoticeItemAdapter extends RecyclerView.Adapter<NoticeItemAdapter.Vi
             payment = itemView.findViewById(R.id.notice_list_item_wage);
             workPeriod = itemView.findViewById(R.id.notice_list_item_work_period);
             currentStatus = itemView.findViewById(R.id.notice_list_item_current_status);
+            alreadyAplied = itemView.findViewById(R.id.already_applied_layout);
 
         }
     }
