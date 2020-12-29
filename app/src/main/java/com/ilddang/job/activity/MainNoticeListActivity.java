@@ -1,4 +1,4 @@
-package com.ilddang.activity;
+package com.ilddang.job.activity;
 
 import android.Manifest;
 import android.content.DialogInterface;
@@ -30,11 +30,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.ilddang.R;
-import com.ilddang.data.NoticeListItemData;
-import com.ilddang.util.Constants;
-import com.ilddang.util.GpsTracker;
-import com.ilddang.widget.NoticeItemAdapter;
+import com.ilddang.job.R;
+import com.ilddang.job.data.NoticeListItemData;
+import com.ilddang.job.util.Constants;
+import com.ilddang.job.util.GpsTracker;
+import com.ilddang.job.widget.NoticeItemAdapter;
 
 import java.io.IOException;
 import java.util.ArrayList;

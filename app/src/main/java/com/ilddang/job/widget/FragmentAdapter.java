@@ -1,13 +1,12 @@
-package com.ilddang.widget;
+package com.ilddang.job.widget;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.ilddang.fragment.MyJobCalendarFragment;
-import com.ilddang.fragment.MyJobListFragment;
+import com.ilddang.job.fragment.MyJobCalendarFragment;
+import com.ilddang.job.fragment.MyJobListFragment;
 
 public class FragmentAdapter extends FragmentStateAdapter {
 

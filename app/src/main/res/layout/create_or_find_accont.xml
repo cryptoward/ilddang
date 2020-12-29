@@ -7,7 +7,7 @@
     android:layout_marginStart="10dp"
     android:layout_marginEnd="10dp"
     android:layout_marginTop="60dp"
-    tools:context="com.ilddang.activity.MainActivity">
+    tools:context=".activity.MainActivity">
 
     <EditText
         android:id="@+id/email_edit_text"

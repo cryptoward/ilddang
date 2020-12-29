@@ -1,4 +1,4 @@
-package com.ilddang.activity;
+package com.ilddang.job.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.content.AsyncTaskLoader;
 
-import com.ilddang.R;
+import com.ilddang.job.R;
 
 public class SplashActivity extends AppCompatActivity {
     private ProgressBar mProgressBar;

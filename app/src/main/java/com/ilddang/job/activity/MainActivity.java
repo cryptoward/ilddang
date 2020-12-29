@@ -1,4 +1,4 @@
-package com.ilddang.activity;
+package com.ilddang.job.activity;
 
 import androidx.appcompat.app.AlertDialog;
 
@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.ilddang.R;
+import com.ilddang.job.R;
 
 public class MainActivity extends BaseActivity {
     private TextView mFindIdPassword;

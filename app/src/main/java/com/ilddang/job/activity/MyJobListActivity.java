@@ -1,7 +1,5 @@
-package com.ilddang.activity;
+package com.ilddang.job.activity;
 
-import android.annotation.TargetApi;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,8 +8,8 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
-import com.ilddang.R;
-import com.ilddang.widget.FragmentAdapter;
+import com.ilddang.job.R;
+import com.ilddang.job.widget.FragmentAdapter;
 
 public class MyJobListActivity extends BaseActivity {
     private TabLayout mTabLayout;

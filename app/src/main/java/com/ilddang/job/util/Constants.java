@@ -1,6 +1,8 @@
-package com.ilddang.util;
+package com.ilddang.job.util;
 
 public class Constants {
+    public static final String SERVER_URL = "http://117.52.20.138:3000/";
+
     public interface CurrentStatus {
         public String RECRUITING = "모집중";
         public String CLOSED = "마감";

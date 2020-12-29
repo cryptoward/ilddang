@@ -1,4 +1,4 @@
-package com.ilddang.util;
+package com.ilddang.job.util;
 
 import android.Manifest;
 import android.app.Service;

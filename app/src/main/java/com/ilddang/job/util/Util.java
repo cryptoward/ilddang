@@ -1,6 +1,6 @@
-package com.ilddang.util;
+package com.ilddang.job.util;
 
-import com.ilddang.R;
+import com.ilddang.job.R;
 
 public class Util {
     public static int getStatusColor(String currentStatus) {

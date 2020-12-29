@@ -1,4 +1,4 @@
-package com.ilddang.activity;
+package com.ilddang.job.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
-import com.ilddang.R;
+import com.ilddang.job.R;
 
 public class MyProfileActivity extends BaseActivity {
     private ImageView mProfileImage;

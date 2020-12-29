@@ -1,18 +1,17 @@
-package com.ilddang.activity;
+package com.ilddang.job.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 
 import com.bumptech.glide.Glide;
-import com.ilddang.R;
+import com.ilddang.job.R;
 
 public class MyProfileSettingActivity extends BaseActivity {
     private ImageView mProfileImage;

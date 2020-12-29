@@ -1,4 +1,4 @@
-package com.ilddang.activity;
+package com.ilddang.job.activity;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.ilddang.R;
+import com.ilddang.job.R;
 
 public class BaseActivity extends AppCompatActivity {
 

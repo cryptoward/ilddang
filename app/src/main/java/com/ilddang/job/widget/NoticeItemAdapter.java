@@ -1,4 +1,4 @@
-package com.ilddang.widget;
+package com.ilddang.job.widget;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,11 +10,11 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ilddang.R;
-import com.ilddang.activity.NoticeDetailActivity;
-import com.ilddang.data.NoticeListItemData;
-import com.ilddang.util.Constants;
-import com.ilddang.util.Util;
+import com.ilddang.job.R;
+import com.ilddang.job.activity.NoticeDetailActivity;
+import com.ilddang.job.data.NoticeListItemData;
+import com.ilddang.job.util.Constants;
+import com.ilddang.job.util.Util;
 
 import java.util.ArrayList;
 

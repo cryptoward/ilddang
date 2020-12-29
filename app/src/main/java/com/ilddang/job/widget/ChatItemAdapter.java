@@ -1,4 +1,4 @@
-package com.ilddang.widget;
+package com.ilddang.job.widget;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,9 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ilddang.R;
-import com.ilddang.data.ChatData;
-import com.ilddang.util.Constants;
+import com.ilddang.job.R;
+import com.ilddang.job.data.ChatData;
+import com.ilddang.job.util.Constants;
 
 import java.util.ArrayList;
 

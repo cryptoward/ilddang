@@ -5,6 +5,7 @@
     <string name="auth_num">인증번호</string>
     <string name="password">비밀번호</string>
     <string name="confirm_password">비밀번호 확인</string>
+    <string name="confirm">확인</string>
     <string name="find_id_password_message">아이디/ 비밀번호 \n 둘 중 어떤것이 기억나지 않으세요? </string>
     <string name="find_email">이메일 찾기</string>
     <string name="find_password">비밀번호 찾기</string>

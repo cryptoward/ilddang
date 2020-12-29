@@ -1,4 +1,4 @@
-package com.ilddang.fragment;
+package com.ilddang.job.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ilddang.R;
-import com.ilddang.data.NoticeListItemData;
-import com.ilddang.util.Constants;
-import com.ilddang.widget.NoticeItemAdapter;
+import com.ilddang.job.R;
+import com.ilddang.job.data.NoticeListItemData;
+import com.ilddang.job.util.Constants;
+import com.ilddang.job.widget.NoticeItemAdapter;
 
 import java.util.ArrayList;
 

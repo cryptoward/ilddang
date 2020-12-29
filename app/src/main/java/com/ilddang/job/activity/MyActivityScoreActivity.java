@@ -1,4 +1,4 @@
-package com.ilddang.activity;
+package com.ilddang.job.activity;
 
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-import com.ilddang.R;
+import com.ilddang.job.R;
 
 public class MyActivityScoreActivity extends  BaseActivity {
     private ImageView mProfileImage;

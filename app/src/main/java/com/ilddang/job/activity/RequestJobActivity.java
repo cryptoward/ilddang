@@ -1,20 +1,15 @@
-package com.ilddang.activity;
+package com.ilddang.job.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.ilddang.R;
-import com.ilddang.data.NoticeListItemData;
-import com.ilddang.util.Constants;
-import com.ilddang.util.Util;
+import com.ilddang.job.R;
+import com.ilddang.job.data.NoticeListItemData;
+import com.ilddang.job.util.Util;
 
 public class RequestJobActivity extends BaseActivity {
     private NoticeListItemData mData;

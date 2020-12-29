@@ -1,4 +1,4 @@
-package com.ilddang.data;
+package com.ilddang.job.data;
 
 public class ChatData {
     public int chatType;

@@ -1,6 +1,5 @@
-package com.ilddang.fragment;
+package com.ilddang.job.fragment;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-import com.ilddang.R;
+import com.ilddang.job.R;
 
 public class BaseDialogFragment extends DialogFragment implements View.OnClickListener {
     private Button mFirstButton;

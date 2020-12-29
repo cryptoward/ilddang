@@ -1,4 +1,4 @@
-package com.ilddang.activity;
+package com.ilddang.job.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,12 +11,12 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ilddang.R;
-import com.ilddang.data.ChatData;
-import com.ilddang.data.NoticeListItemData;
-import com.ilddang.util.Constants;
-import com.ilddang.util.Util;
-import com.ilddang.widget.ChatItemAdapter;
+import com.ilddang.job.R;
+import com.ilddang.job.data.ChatData;
+import com.ilddang.job.data.NoticeListItemData;
+import com.ilddang.job.util.Constants;
+import com.ilddang.job.util.Util;
+import com.ilddang.job.widget.ChatItemAdapter;
 
 import java.util.ArrayList;
 import java.util.Calendar;

@@ -1,4 +1,4 @@
-package com.ilddang.data;
+package com.ilddang.job.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
