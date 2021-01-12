@@ -22,13 +22,33 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:layout_marginEnd="20dp"
-            android:gravity="center"
             android:backgroundTint="@color/base_green"
             android:background="@drawable/circle_button_bg_normal">
+
+            <View
+                android:id="@+id/dummy_1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:id="@+id/technique_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="-10dp"
+                android:layout_above="@+id/dummy_1"
+                android:textColor="@color/base_white"
+                android:textSize="30dp"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/base_white"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:layout_below="@+id/dummy_1"
                 android:text="기술이 좋아요"/>
         </RelativeLayout>
 
@@ -36,13 +56,33 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:backgroundTint="@color/base_green"
             android:background="@drawable/circle_button_bg_normal">
+
+            <View
+                android:id="@+id/dummy_2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:id="@+id/sincerity_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-10dp"
+                android:layout_above="@+id/dummy_2"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/base_white"
+                android:textSize="30dp"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/dummy_2"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
                 android:textColor="@color/base_white"
+                android:textAlignment="center"
                 android:text="성실히 일해요"/>
         </RelativeLayout>
     </LinearLayout>
@@ -62,28 +102,68 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:layout_marginEnd="20dp"
-            android:gravity="center"
             android:backgroundTint="@color/base_green"
             android:background="@drawable/circle_button_bg_normal">
+
+            <View
+                android:id="@+id/dummy_3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:id="@+id/cowork_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-10dp"
+                android:layout_above="@+id/dummy_3"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/base_white"
+                android:textSize="30dp"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/dummy_3"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
                 android:textColor="@color/base_white"
-                android:text="또 같이 일하고 싶어요"/>
+                android:text="또 같이\n 일하고 싶어요"/>
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:backgroundTint="@color/base_green"
             android:background="@drawable/circle_button_bg_normal">
+
+            <View
+                android:id="@+id/dummy_4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:id="@+id/consistency_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-10dp"
+                android:layout_above="@+id/dummy_4"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/base_white"
+                android:textSize="30dp"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/dummy_4"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
                 android:textColor="@color/base_white"
-                android:text="구직자 정보와 일치해요"/>
+                android:text="구직자 정보와\n 일치해요"/>
         </RelativeLayout>
 
     </LinearLayout>
@@ -103,12 +183,32 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:layout_marginEnd="20dp"
-            android:gravity="center"
             android:backgroundTint="@color/base_green"
             android:background="@drawable/circle_button_bg_normal">
+
+            <View
+                android:id="@+id/dummy_5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:id="@+id/promise_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-10dp"
+                android:layout_above="@+id/dummy_5"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/base_white"
+                android:textSize="30dp"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/dummy_5"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
                 android:textColor="@color/base_white"
                 android:text="약속을 잘 지켜요"/>
         </RelativeLayout>
@@ -117,13 +217,33 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:backgroundTint="@color/base_pink"
             android:background="@drawable/circle_button_bg_normal">
+
+            <View
+                android:id="@+id/dummy_6"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:id="@+id/promise_bad_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-10dp"
+                android:layout_above="@+id/dummy_6"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/base_white"
+                android:textSize="30dp"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/dummy_6"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
                 android:textColor="@color/base_white"
+                android:textAlignment="center"
                 android:text="약속을 안 지켜요"/>
         </RelativeLayout>
 
@@ -145,26 +265,66 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:layout_marginEnd="20dp"
-            android:gravity="center"
             android:backgroundTint="@color/base_pink"
             android:background="@drawable/circle_button_bg_normal">
+
+            <View
+                android:id="@+id/dummy_7"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:id="@+id/cowork_bad_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-10dp"
+                android:layout_above="@+id/dummy_7"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/base_white"
+                android:textSize="30dp"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/dummy_7"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
                 android:textColor="@color/base_white"
-                android:text="또 같이 일하기 싫어요"/>
+                android:text="또 같이\n 일하기 싫어요"/>
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:backgroundTint="@color/base_pink"
             android:background="@drawable/circle_button_bg_normal">
+
+            <View
+                android:id="@+id/dummy_8"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:id="@+id/sincerity_bad_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/base_white"
+                android:layout_marginBottom="-10dp"
+                android:layout_above="@+id/dummy_8"
+                android:layout_centerHorizontal="true"
+                android:textSize="30dp"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/dummy_8"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
                 android:textColor="@color/base_white"
                 android:text="성실하지 않아요"/>
         </RelativeLayout>

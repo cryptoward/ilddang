@@ -10,6 +10,9 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
@@ -52,86 +55,103 @@ public class MainNoticeListActivity extends BaseActivity  {
     private ImageView mProfileImage;
     private TextView mProfileHello;
     private RelativeLayout mAlphaLayout;
-    private RelativeLayout mMyIlddang;
-    private RelativeLayout mOneononeAsk;
-    private RelativeLayout mAppNotice;
     private ToggleButton mMyInfoButton;
     private View mActionBar;
+    private WebView mWebView;
+    private WebSettings mWebSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_notice_list_activity);
-        createSpinnerActionBar();
-        mAlphaLayout = findViewById(R.id.alpha_layout);
-        mNoticeListView = findViewById(R.id.notice_list_recycler_view);
+        String session = getIntent().getStringExtra("login_session");
+        mWebView = (WebView) findViewById(R.id.webView);
 
-        LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        mNoticeListView.setLayoutManager(manager);
+        mWebView.setWebViewClient(new WebViewClient());
+        mWebSettings = mWebView.getSettings();
+        mWebSettings.setJavaScriptEnabled(true);
+        mWebSettings.setSupportMultipleWindows(true);
+        mWebSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        mWebSettings.setLoadWithOverviewMode(true);
+        mWebSettings.setUseWideViewPort(true);
+        mWebSettings.setSupportZoom(false);
+        mWebSettings.setBuiltInZoomControls(false);
+        mWebSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        mWebSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+        mWebSettings.setDomStorageEnabled(true);
 
-        //TODO: get data from server
-        NoticeListItemData data
-                = new NoticeListItemData("영진인테리어", "공사 끝난 건물 필름 시공자 4명급구",
-                2, "장항2동 2km", "일 8만원", "10.01 오전 03:00 ~ 당일 오후 18:30", Constants.CurrentStatus.RECRUITING);
+        mWebView.loadUrl("http://117.52.20.138:3000/work?sessionid=" + session);
 
-        NoticeListItemData data2
-                = new NoticeListItemData("장인타일", "화장실 타일 시공자 4명급구",
-                2, "장항2동 2km", "총 12만원", "10.01 오전 03:00 ~ 10.05 오후 18:30", Constants.CurrentStatus.CLOSED);
-
-        NoticeListItemData data3
-                = new NoticeListItemData("하늘건설", "공사 끝난건물 필름 시공자 4명 급구",
-                2, "장항2동 2km", "총 12만원", "10.01 오전 03:00 ~ 10.05 오후 18:30", Constants.CurrentStatus.SCHEDULED);
-        ArrayList<NoticeListItemData> list = new ArrayList<>();
-        list.add(data);
-        list.add(data2);
-        list.add(data3);
-
-        NoticeItemAdapter adapter = new NoticeItemAdapter(this, list, true);
-        mNoticeListView.setAdapter(adapter);
-
-        if (!checkLocationServicesStatus()) {
-
-            showDialogForLocationServiceSetting();
-        }else {
-
-            checkRunTimePermission();
-        }
-
-        gpsTracker = new GpsTracker(MainNoticeListActivity.this);
-
-        double latitude = gpsTracker.getLatitude();
-        double longitude = gpsTracker.getLongitude();
-
-        String address = getCurrentAddress(latitude, longitude);
-
-        TextView adressText = findViewById(R.id.address);
-        if (address.contains("대한민국")) {
-            adressText.setText(address.replace("대한민국", ""));
-        }
-
-        mMyInfoButton = findViewById(R.id.my_info_button);
-        mMyInfoButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                if (checked) {
-                    mAlphaLayout.setVisibility(View.VISIBLE);
-                    mMoreOptionLayout.setVisibility(View.VISIBLE);
-                    mProfileLayout.setVisibility(View.VISIBLE);
-                    Glide.with(MainNoticeListActivity.this)
-                            .load(R.drawable.default_profile_image)
-                            .circleCrop()
-                            .into(mProfileImage);
-                    //TODO: get profile name from server
-                    mProfileHello.setText(getResources().getString(R.string.profile_hello, "슈퍼맨"));
-                } else {
-                    setTurnOffAlpha();
-                }
-            }
-        });
-        mMoreOptionLayout = findViewById(R.id.more_option_layout);
-        mProfileLayout = findViewById(R.id.profile_layout);
-        mProfileImage = findViewById(R.id.profile_image);
-        mProfileHello = findViewById(R.id.profile_hello);
+//               createSpinnerActionBar();
+//        mAlphaLayout = findViewById(R.id.alpha_layout);
+//        mNoticeListView = findViewById(R.id.notice_list_recycler_view);
+//
+//        LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+//        mNoticeListView.setLayoutManager(manager);
+//
+//        //TODO: get data from server
+//        NoticeListItemData data
+//                = new NoticeListItemData("영진인테리어", "공사 끝난 건물 필름 시공자 4명급구",
+//                2, "장항2동 2km", "일 8만원", "10.01 오전 03:00 ~ 당일 오후 18:30", Constants.CurrentStatus.RECRUITING);
+//
+//        NoticeListItemData data2
+//                = new NoticeListItemData("장인타일", "화장실 타일 시공자 4명급구",
+//                2, "장항2동 2km", "총 12만원", "10.01 오전 03:00 ~ 10.05 오후 18:30", Constants.CurrentStatus.CLOSED);
+//
+//        NoticeListItemData data3
+//                = new NoticeListItemData("하늘건설", "공사 끝난건물 필름 시공자 4명 급구",
+//                2, "장항2동 2km", "총 12만원", "10.01 오전 03:00 ~ 10.05 오후 18:30", Constants.CurrentStatus.SCHEDULED);
+//        ArrayList<NoticeListItemData> list = new ArrayList<>();
+//        list.add(data);
+//        list.add(data2);
+//        list.add(data3);
+//
+//        NoticeItemAdapter adapter = new NoticeItemAdapter(this, list, true);
+//        mNoticeListView.setAdapter(adapter);
+//
+//        if (!checkLocationServicesStatus()) {
+//
+//            showDialogForLocationServiceSetting();
+//        }else {
+//
+//            checkRunTimePermission();
+//        }
+//
+//        gpsTracker = new GpsTracker(MainNoticeListActivity.this);
+//
+//        double latitude = gpsTracker.getLatitude();
+//        double longitude = gpsTracker.getLongitude();
+//
+//        String address = getCurrentAddress(latitude, longitude);
+//
+//        TextView adressText = findViewById(R.id.address);
+//        if (address.contains("대한민국")) {
+//            adressText.setText(address.replace("대한민국", ""));
+//        }
+//
+//        mMyInfoButton = findViewById(R.id.my_info_button);
+//        mMyInfoButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+//                if (checked) {
+//                    mAlphaLayout.setVisibility(View.VISIBLE);
+//                    mMoreOptionLayout.setVisibility(View.VISIBLE);
+//                    mProfileLayout.setVisibility(View.VISIBLE);
+//                    Glide.with(MainNoticeListActivity.this)
+//                            .load(R.drawable.default_profile_image)
+//                            .circleCrop()
+//                            .into(mProfileImage);
+//                    //TODO: get profile name from server
+//                    mProfileHello.setText(getResources().getString(R.string.profile_hello, "슈퍼맨"));
+//                } else {
+//                    setTurnOffAlpha();
+//                }
+//            }
+//        });
+//        mMoreOptionLayout = findViewById(R.id.more_option_layout);
+//        mProfileLayout = findViewById(R.id.profile_layout);
+//        mProfileImage = findViewById(R.id.profile_image);
+//        mProfileHello = findViewById(R.id.profile_hello);
     }
 
     private void createSpinnerActionBar() {
@@ -152,7 +172,7 @@ public class MainNoticeListActivity extends BaseActivity  {
         String[] alignArray = {"최신순", "거리순"};
 
         ArrayAdapter<String> alignAdapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_spinner_item, alignArray
+                this, R.layout.spinner_item_text, alignArray
         );
         alignAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(alignAdapter);
@@ -169,43 +189,43 @@ public class MainNoticeListActivity extends BaseActivity  {
         mProfileLayout.setVisibility(View.GONE);
     }
 
-    public void onButtonClick(View view) {
-        mMyInfoButton.performClick();
-        if (view.getId() == R.id.my_ilddang) {
-            Intent intent = new Intent(this, MyProfileActivity.class);
-            startActivity(intent);
-        }
-    }
+//    public void onButtonClick(View view) {
+//        mMyInfoButton.performClick();
+//        if (view.getId() == R.id.my_ilddang) {
+//            Intent intent = new Intent(this, MyProfileActivity.class);
+//            startActivity(intent);
+//        }
+//    }
 
-    @Override
-    public void onRequestPermissionsResult(int permsRequestCode,
-                                           @NonNull String[] permissions,
-                                           @NonNull int[] grandResults) {
-
-        if ( permsRequestCode == PERMISSIONS_REQUEST_CODE && grandResults.length == REQUIRED_PERMISSIONS.length) {
-            boolean check_result = true;
-
-            for (int result : grandResults) {
-                if (result != PackageManager.PERMISSION_GRANTED) {
-                    check_result = false;
-                    break;
-                }
-            }
-
-
-            if (!check_result) {
-                if (ActivityCompat.shouldShowRequestPermissionRationale(this, REQUIRED_PERMISSIONS[0])
-                        || ActivityCompat.shouldShowRequestPermissionRationale(this, REQUIRED_PERMISSIONS[1])) {
-
-                    Toast.makeText(MainNoticeListActivity.this, "퍼미션이 거부되었습니다. 앱을 다시 실행하여 퍼미션을 허용해주세요.", Toast.LENGTH_LONG).show();
-                    finish();
-                } else {
-                    Toast.makeText(MainNoticeListActivity.this, "퍼미션이 거부되었습니다. 설정(앱 정보)에서 퍼미션을 허용해야 합니다. ", Toast.LENGTH_LONG).show();
-                }
-            }
-
-        }
-    }
+//    @Override
+//    public void onRequestPermissionsResult(int permsRequestCode,
+//                                           @NonNull String[] permissions,
+//                                           @NonNull int[] grandResults) {
+//
+//        if ( permsRequestCode == PERMISSIONS_REQUEST_CODE && grandResults.length == REQUIRED_PERMISSIONS.length) {
+//            boolean check_result = true;
+//
+//            for (int result : grandResults) {
+//                if (result != PackageManager.PERMISSION_GRANTED) {
+//                    check_result = false;
+//                    break;
+//                }
+//            }
+//
+//
+//            if (!check_result) {
+//                if (ActivityCompat.shouldShowRequestPermissionRationale(this, REQUIRED_PERMISSIONS[0])
+//                        || ActivityCompat.shouldShowRequestPermissionRationale(this, REQUIRED_PERMISSIONS[1])) {
+//
+//                    Toast.makeText(MainNoticeListActivity.this, "퍼미션이 거부되었습니다. 앱을 다시 실행하여 퍼미션을 허용해주세요.", Toast.LENGTH_LONG).show();
+//                    finish();
+//                } else {
+//                    Toast.makeText(MainNoticeListActivity.this, "퍼미션이 거부되었습니다. 설정(앱 정보)에서 퍼미션을 허용해야 합니다. ", Toast.LENGTH_LONG).show();
+//                }
+//            }
+//
+//        }
+//    }
 
     void checkRunTimePermission(){
         int hasFineLocationPermission = ContextCompat.checkSelfPermission(MainNoticeListActivity.this,

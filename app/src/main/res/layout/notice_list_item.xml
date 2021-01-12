@@ -64,6 +64,21 @@
                         android:textColor="@color/base_white"
                         android:textSize="14dp"/>
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/notice_item_new"
+                    style="@style/RobotoRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:visibility="gone"
+                    android:background="@drawable/rounded_bg_small"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textColor="@color/base_white"
+                    android:text="NEW"
+                    android:textSize="12dp"/>
             </LinearLayout>
 
             <TextView

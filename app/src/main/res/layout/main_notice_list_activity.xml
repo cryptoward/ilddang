@@ -8,225 +8,235 @@
     android:background="@color/base_light_grey"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/address_layout"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:background="@color/base_white"
-        android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/location_image"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="5dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/location_icon"
-            android:layout_alignParentStart="true"/>
-
-        <TextView
-            android:id="@+id/address"
-            style="@style/RobotoRegular"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/base_black"
-            android:textSize="18dp"
-            android:layout_toEndOf="@+id/location_image"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp"
-            android:padding="8dp"
-            android:backgroundTint="@color/colorPrimary"
-            android:background="@drawable/location_rounded_bg">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/location_setting"/>
-
-            <TextView
-                style="@style/RobotoRegular"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/base_white"
-                android:layout_gravity="center_vertical"
-                android:includeFontPadding="false"
-                android:textSize="13dp"
-                android:text="위치 설정하기"/>
-        </LinearLayout>
-    </RelativeLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/notice_list_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/address_layout"/>
-
-    <ToggleButton
-        android:id="@+id/my_info_button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/circle_toggle_button"
-        android:gravity="center"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="20dp"
-        android:textOff=""
-        android:textOn=""
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"/>
-
-    <RelativeLayout
-        android:id="@+id/alpha_layout"
+    <WebView
+        android:id="@+id/webView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        android:background="@color/item_alpha_color"/>
-
-    <LinearLayout
-        android:id="@+id/profile_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="100dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal"
-        android:visibility="gone">
+        android:layout_alignParentStart="true" >
+    </WebView>
 
-        <RelativeLayout
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:background="@drawable/circle_profile_background"
-            android:gravity="center">
 
-            <ImageView
-                android:id="@+id/profile_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"/>
-        </RelativeLayout>
+    <!--    <RelativeLayout-->
+<!--        android:id="@+id/address_layout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:paddingTop="10dp"-->
+<!--        android:paddingBottom="10dp"-->
+<!--        android:background="@color/base_white"-->
+<!--        android:orientation="horizontal">-->
 
-        <TextView
-            android:id="@+id/profile_hello"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="30dp"
-            android:textColor="@color/base_white"/>
-    </LinearLayout>
+<!--        <ImageView-->
+<!--            android:id="@+id/location_image"-->
+<!--            android:layout_width="20dp"-->
+<!--            android:layout_height="20dp"-->
+<!--            android:layout_marginStart="15dp"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:src="@drawable/location_icon"-->
+<!--            android:layout_alignParentStart="true"/>-->
 
-    <LinearLayout
-        android:id="@+id/more_option_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="25dp"
-        android:visibility="gone"
-        android:layout_above="@+id/my_info_button">
+<!--        <TextView-->
+<!--            android:id="@+id/address"-->
+<!--            style="@style/RobotoRegular"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@color/base_black"-->
+<!--            android:textSize="18dp"-->
+<!--            android:layout_toEndOf="@+id/location_image"/>-->
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:padding="8dp"-->
+<!--            android:backgroundTint="@color/colorPrimary"-->
+<!--            android:background="@drawable/location_rounded_bg">-->
 
-            <RelativeLayout
-                android:id="@+id/app_notice"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentEnd="true"
-                android:background="@drawable/circle_button_bg_normal"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:layout_marginBottom="10dp">
+<!--            <ImageView-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:src="@drawable/location_setting"/>-->
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/app_notice_icon"
-                    app:tint="@color/base_white"/>
-            </RelativeLayout>
+<!--            <TextView-->
+<!--                style="@style/RobotoRegular"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textColor="@color/base_white"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:includeFontPadding="false"-->
+<!--                android:textSize="13dp"-->
+<!--                android:text="위치 설정하기"/>-->
+<!--        </LinearLayout>-->
+<!--    </RelativeLayout>-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/base_white"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="4dp"
-                android:layout_toStartOf="@+id/app_notice"
-                android:text="@string/app_notice"/>
-        </RelativeLayout>
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/notice_list_recycler_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/address_layout"/>-->
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+<!--    <ToggleButton-->
+<!--        android:id="@+id/my_info_button"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:background="@drawable/circle_toggle_button"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:layout_marginEnd="20dp"-->
+<!--        android:textOff=""-->
+<!--        android:textOn=""-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_alignParentEnd="true"/>-->
 
-            <RelativeLayout
-                android:id="@+id/one_on_one_ask"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentEnd="true"
-                android:background="@drawable/circle_button_bg_normal"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:layout_marginBottom="10dp">
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/alpha_layout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:visibility="gone"-->
+<!--        android:background="@color/item_alpha_color"/>-->
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/question_icon"
-                    app:tint="@color/base_white"/>
-            </RelativeLayout>
+<!--    <LinearLayout-->
+<!--        android:id="@+id/profile_layout"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:layout_marginTop="100dp"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:gravity="center_horizontal"-->
+<!--        android:visibility="gone">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/base_white"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="4dp"
-                android:layout_toStartOf="@+id/one_on_one_ask"
-                android:text="@string/one_on_one_ask"/>
-        </RelativeLayout>
+<!--        <RelativeLayout-->
+<!--            android:layout_width="110dp"-->
+<!--            android:layout_height="110dp"-->
+<!--            android:background="@drawable/circle_profile_background"-->
+<!--            android:gravity="center">-->
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+<!--            <ImageView-->
+<!--                android:id="@+id/profile_image"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="100dp"/>-->
+<!--        </RelativeLayout>-->
 
-            <RelativeLayout
-                android:id="@+id/my_ilddang"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentEnd="true"
-                android:background="@drawable/circle_button_bg_normal"
-                android:gravity="center"
-                android:layout_centerVertical="true"
-                android:layout_marginBottom="10dp"
-                android:onClick="onButtonClick">
+<!--        <TextView-->
+<!--            android:id="@+id/profile_hello"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textSize="30dp"-->
+<!--            android:textColor="@color/base_white"/>-->
+<!--    </LinearLayout>-->
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/setting_icon"
-                    app:tint="@color/base_white"/>
-            </RelativeLayout>
+<!--    <LinearLayout-->
+<!--        android:id="@+id/more_option_layout"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_marginEnd="25dp"-->
+<!--        android:visibility="gone"-->
+<!--        android:layout_above="@+id/my_info_button">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:layout_centerVertical="true"
-                android:textColor="@color/base_white"
-                android:layout_toStartOf="@+id/my_ilddang"
-                android:text="@string/my_info"/>
-        </RelativeLayout>
-    </LinearLayout>
+<!--        <RelativeLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/app_notice"-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:background="@drawable/circle_button_bg_normal"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:gravity="center"-->
+<!--                android:layout_marginBottom="10dp">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="20dp"-->
+<!--                    android:layout_height="20dp"-->
+<!--                    android:src="@drawable/app_notice_icon"-->
+<!--                    app:tint="@color/base_white"/>-->
+<!--            </RelativeLayout>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textColor="@color/base_white"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:layout_marginEnd="4dp"-->
+<!--                android:layout_toStartOf="@+id/app_notice"-->
+<!--                android:text="@string/app_notice"/>-->
+<!--        </RelativeLayout>-->
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/one_on_one_ask"-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:background="@drawable/circle_button_bg_normal"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:gravity="center"-->
+<!--                android:layout_marginBottom="10dp">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="20dp"-->
+<!--                    android:layout_height="20dp"-->
+<!--                    android:src="@drawable/question_icon"-->
+<!--                    app:tint="@color/base_white"/>-->
+<!--            </RelativeLayout>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textColor="@color/base_white"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:layout_marginEnd="4dp"-->
+<!--                android:layout_toStartOf="@+id/one_on_one_ask"-->
+<!--                android:text="@string/one_on_one_ask"/>-->
+<!--        </RelativeLayout>-->
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/my_ilddang"-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:background="@drawable/circle_button_bg_normal"-->
+<!--                android:gravity="center"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:onClick="onButtonClick">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="20dp"-->
+<!--                    android:layout_height="20dp"-->
+<!--                    android:src="@drawable/setting_icon"-->
+<!--                    app:tint="@color/base_white"/>-->
+<!--            </RelativeLayout>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="4dp"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:textColor="@color/base_white"-->
+<!--                android:layout_toStartOf="@+id/my_ilddang"-->
+<!--                android:text="@string/my_info"/>-->
+<!--        </RelativeLayout>-->
+<!--    </LinearLayout>-->
 
 </RelativeLayout>

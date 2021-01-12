@@ -1,5 +1,7 @@
 package com.ilddang.job.util;
 
+import android.content.Context;
+
 import com.ilddang.job.R;
 
 public class Util {
@@ -20,5 +22,10 @@ public class Util {
             default:
                 return R.color.base_green;
         }
+    }
+
+    public static String getDevicesId(Context context){
+        String androidId = "" + android.provider.Settings.Secure.getString(context.getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
+        return androidId;
     }
 }

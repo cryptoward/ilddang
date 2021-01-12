@@ -53,6 +53,8 @@ public class NoticeItemAdapter extends RecyclerView.Adapter<NoticeItemAdapter.Vi
             holder.currentStatus.setText(Constants.CurrentStatus.RECRUITING);
             holder.alreadyAplied.setVisibility(View.VISIBLE);
             holder.itemView.setClickable(false);
+        } else {
+            holder.newItem.setVisibility(View.VISIBLE);
         }
     }
 
@@ -70,6 +72,7 @@ public class NoticeItemAdapter extends RecyclerView.Adapter<NoticeItemAdapter.Vi
         TextView workPeriod;
         TextView currentStatus;
         RelativeLayout alreadyAplied;
+        TextView newItem;
 
         ViewHolder(View itemView) {
             super(itemView) ;
@@ -89,7 +92,7 @@ public class NoticeItemAdapter extends RecyclerView.Adapter<NoticeItemAdapter.Vi
             workPeriod = itemView.findViewById(R.id.notice_list_item_work_period);
             currentStatus = itemView.findViewById(R.id.notice_list_item_current_status);
             alreadyAplied = itemView.findViewById(R.id.already_applied_layout);
-
+            newItem = itemView.findViewById(R.id.notice_item_new);
         }
     }
 

@@ -31,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:inputType="textPassword"
             android:hint="@string/password"/>
 
         <EditText
@@ -39,6 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:inputType="textPassword"
             android:hint="@string/confirm_password"/>
 
         <View
@@ -91,7 +93,7 @@
         android:hint="@string/auth_num"/>
 
     <Button
-        android:id="@+id/join_button"
+        android:id="@+id/bottom_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

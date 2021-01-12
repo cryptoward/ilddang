@@ -11,12 +11,13 @@
         android:layout_height="20dp"
         android:layout_marginStart="20dp"
         android:layout_centerVertical="true"
+        android:foreground="?attr/selectableItemBackground"
         android:background="@drawable/actionbar_back"/>
 
     <Spinner
         android:id="@+id/action_bar_spinner"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:visibility="gone"/>
 

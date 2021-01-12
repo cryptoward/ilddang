@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -26,7 +28,6 @@ public class MyJobListFragment extends Fragment {
         MyJobListFragment tab1 = new MyJobListFragment();
         return tab1;
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,6 +56,16 @@ public class MyJobListFragment extends Fragment {
 
         NoticeItemAdapter adapter = new NoticeItemAdapter(getActivity(), list, false);
         recyclerView.setAdapter(adapter);
+
+        Spinner spinner = view.findViewById(R.id.my_job_list_spinner);
+        spinner.setVisibility(View.VISIBLE);
+        String[] alignArray = {"최신순", "거리순"};
+
+        ArrayAdapter<String> alignAdapter = new ArrayAdapter<>(
+                getActivity(), R.layout.spinner_item_text, alignArray
+        );
+        alignAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(alignAdapter);
 
         return view;
     }

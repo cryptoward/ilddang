@@ -3,8 +3,10 @@ package com.ilddang.job.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -12,6 +14,7 @@ import androidx.appcompat.widget.SwitchCompat;
 
 import com.bumptech.glide.Glide;
 import com.ilddang.job.R;
+import com.ilddang.job.widget.NoticeItemAdapter;
 
 public class MyProfileSettingActivity extends BaseActivity {
     private ImageView mProfileImage;
@@ -20,7 +23,8 @@ public class MyProfileSettingActivity extends BaseActivity {
     private TextView mPushNotiText;
     private SwitchCompat mAutoLoginSwitch;
     private TextView mAutoLoginText;
-
+    private TextView mImageChange;
+    private TextView mNameChange;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,6 +34,15 @@ public class MyProfileSettingActivity extends BaseActivity {
 
         mProfileImage = findViewById(R.id.profile_image);
         mProfileName = findViewById(R.id.profile_name);
+        mImageChange = findViewById(R.id.profile_image_change);
+        mNameChange = findViewById(R.id.profile_name_change);
+
+        mImageChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         mProfileName.setText("슈퍼맨");
         Glide.with(MyProfileSettingActivity.this)
@@ -56,6 +69,17 @@ public class MyProfileSettingActivity extends BaseActivity {
         });
         mAutoLoginText = findViewById(R.id.switch_auto_login_text);
         setChecked(mAutoLoginText, mAutoLoginSwitch.isChecked());
+
+        Spinner spinner = findViewById(R.id.search_area_spinner);
+        spinner.setVisibility(View.VISIBLE);
+        String[] alignArray = {"5Km", "10Km", "50Km"};
+
+        ArrayAdapter<String> alignAdapter = new ArrayAdapter<>(
+                this, R.layout.spinner_item_text, alignArray
+        );
+        alignAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(alignAdapter);
+
 
     }
 

@@ -5,37 +5,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/profile_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal"
         android:layout_marginBottom="70dp"
         android:layout_marginTop="150dp">
 
         <RelativeLayout
+            android:id="@+id/profile_image_layout"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:background="@drawable/circle_profile_background"
-            android:gravity="center">
+            android:background="@drawable/circle_profile_background">
 
             <ImageView
                 android:id="@+id/profile_image"
                 android:layout_width="100dp"
-                android:layout_height="100dp"/>
+                android:layout_height="100dp"
+                android:layout_centerInParent="true"/>
         </RelativeLayout>
+
+        <TextView
+            android:id="@+id/profile_image_change"
+            style="@style/RobotoRegular"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/profile_image_layout"
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textAlignment="center"
+            android:text="변경"
+            android:background="@drawable/rounded_bg_small"
+            android:backgroundTint="@color/base_deep_grey"
+            android:textColor="@color/base_white"/>
 
         <TextView
             android:id="@+id/profile_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/profile_image_layout"
             android:textAlignment="center"
             android:textSize="25dp"
             android:textColor="@color/base_black"/>
-    </LinearLayout>
+
+        <TextView
+            android:id="@+id/profile_name_change"
+            style="@style/RobotoRegular"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/profile_name"
+            android:layout_below="@+id/profile_image_layout"
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textAlignment="center"
+            android:text="변경"
+            android:background="@drawable/rounded_bg_small"
+            android:backgroundTint="@color/base_deep_grey"
+            android:textColor="@color/base_white"/>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -111,12 +152,12 @@
                 android:text="@string/search_area"
                 android:textColor="@color/base_black"/>
 
-            <ImageView
+            <Spinner
+                android:id="@+id/search_area_spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="15dp"
-                android:scaleX="-1"/>
+                android:layout_marginEnd="15dp"/>
         </RelativeLayout>
 
         <View
