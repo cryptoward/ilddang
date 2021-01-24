@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,8 +24,10 @@ import com.ilddang.job.R;
 import com.ilddang.job.retrofit.ResponseResult;
 import com.ilddang.job.retrofit.RetrofitService;
 import com.ilddang.job.util.Constants;
+import com.ilddang.job.util.SharedPreferencesHelper;
 import com.ilddang.job.util.Util;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -150,21 +153,28 @@ public class MainActivity extends BaseActivity {
                             ResponseBody result = response.body();
                             StringBuilder builder = new StringBuilder();
 
+                            String str = "";
                             try {
-                                String str = result.string();
-                                int idx = str.indexOf("hint");
-                                idx = idx + 7;
-                                for (int i = idx ; str.charAt(i) != '\"' ; i ++) {
-                                    builder.append(str.charAt(i));
+                                str = result.string();
+                                Log.d(TAG, "onResponse: 성공 결과\n" + str);
+                                JSONObject json = new JSONObject(str);
+                                boolean isSuccess = json.getBoolean("success");
+                                if (isSuccess) {
+                                    String hint = json.getString("hint");
+                                    SharedPreferencesHelper.getInstance().setValue(MainActivity.this, SharedPreferencesHelper.SESSION_ID_KEY, hint);
+                                    Intent intent = new Intent(MainActivity.this, MainNoticeListActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                } else {
+                                    Toast.makeText(MainActivity.this, json.getString("message"), Toast.LENGTH_SHORT).show();
                                 }
-                                Log.d(TAG, "onResponse: 성공 결과\n" + builder.toString());
                             } catch (IOException e) {
                                 e.printStackTrace();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
-                            Intent intent = new Intent(MainActivity.this, MainNoticeListActivity.class);
-                            intent.putExtra("login_session", builder.toString());
-                            startActivity(intent);
-                            finish();
+                            Log.d(TAG, "onResponse: 성공 결과\n" + builder.toString());
+
                         } else {
                             try {
                                 JSONObject jObjError = new JSONObject(response.errorBody().string());

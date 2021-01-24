@@ -35,39 +35,45 @@
 
         <activity
             android:name=".activity.MainNoticeListActivity"
-            android:theme="@style/AppThemeActionBar"/>
+            android:theme="@style/AppThemeNoActionBar"/>
 
         <activity
             android:name=".activity.NoticeDetailActivity"
-            android:theme="@style/AppThemeActionBar"/>
+            android:theme="@style/AppThemeNoActionBar"/>
 
         <activity
             android:name=".activity.RequestJobActivity"
-            android:theme="@style/AppThemeActionBar"/>
+            android:theme="@style/AppThemeNoActionBar"/>
 
         <activity
             android:name=".activity.AskChatActivity"
-            android:theme="@style/AppThemeActionBar"/>
+            android:theme="@style/AppThemeNoActionBar"/>
 
         <activity
             android:name=".activity.MyProfileActivity"
-            android:theme="@style/AppThemeActionBar"/>
+            android:theme="@style/AppThemeNoActionBar"/>
 
         <activity
             android:name=".activity.MyProfileSettingActivity"
-            android:theme="@style/AppThemeActionBar"/>
+            android:theme="@style/AppThemeNoActionBar"/>
 
         <activity
             android:name=".activity.MyJobListActivity"
-            android:theme="@style/AppThemeActionBar"/>
+            android:theme="@style/AppThemeNoActionBar"/>
 
         <activity
             android:name=".activity.MyActivityScoreActivity"
-            android:theme="@style/AppThemeActionBar"/>
+            android:theme="@style/AppThemeNoActionBar"/>
 
         <activity
             android:name=".activity.TncPpActivity"
-            android:theme="@style/AppThemeActionBar"/>
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <service android:name=".service.FirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
 
     </application>
 

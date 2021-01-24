@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,6 +31,7 @@ import com.ilddang.job.retrofit.RetrofitService;
 import com.ilddang.job.util.Constants;
 import com.ilddang.job.util.Util;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -176,7 +178,20 @@ public class CreateOrFindAccountActivity extends BaseActivity {
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         if (response.isSuccessful()) {
                             ResponseBody result = response.body();
-                            Log.d(TAG, "onResponse: 성공 결과\n" + result.toString());
+                            try {
+                                String str = result.string();
+                                Log.d(TAG, "onResponse: 성공 결과\n" + str);
+                                JSONObject json = new JSONObject(str);
+                                boolean isSuccess = json.getBoolean("success");
+                                if (isSuccess) {
+                                } else {
+                                    Toast.makeText(CreateOrFindAccountActivity.this, json.getString("message"), Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         } else {
                             try {
                                 JSONObject jObjError = new JSONObject(response.errorBody().string());
@@ -212,7 +227,22 @@ public class CreateOrFindAccountActivity extends BaseActivity {
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         if (response.isSuccessful()) {
                             ResponseBody result = response.body();
-                            Log.d(TAG, "onResponse: 성공 결과\n" + result.toString());
+                            String str = null;
+                            try {
+                                str = result.string();
+                                Log.d(TAG, "onResponse: 성공 결과\n" + str);
+                                JSONObject json = new JSONObject(str);
+                                boolean isSuccess = json.getBoolean("success");
+                                if (isSuccess) {
+                                } else {
+                                    Toast.makeText(CreateOrFindAccountActivity.this, json.getString("message"), Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
                         } else {
                             try {
                                 JSONObject jObjError = new JSONObject(response.errorBody().string());
@@ -248,8 +278,11 @@ public class CreateOrFindAccountActivity extends BaseActivity {
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         if (response.isSuccessful()) {
                             ResponseBody result = response.body();
+                            String str = "";
+
                             try {
-                                Log.d(TAG, "onResponse: 성공 결과\n" + result.string());
+                                str = result.string();
+                                Log.d(TAG, "onResponse: 성공 결과\n" + str);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -262,11 +295,20 @@ public class CreateOrFindAccountActivity extends BaseActivity {
                             final Button firstButton = (Button) view.findViewById(R.id.dialog_first_button);
                             final Button secondButton = (Button) view.findViewById(R.id.dialog_second_button);
                             TextView title = view.findViewById(R.id.dialog_title);
-                            try {
-                                title.setText("회원님의 아이디는 " + result.string() + " 입니다.");
-                            } catch (IOException e) {
-                                e.printStackTrace();
+                            StringBuilder strBuilder = new StringBuilder();
+
+                            int idx = str.indexOf("ColumnValues");
+                            idx = idx + 14;
+                            while (str.charAt(idx) != '\"') {
+                                idx++;
                             }
+                            idx++;
+                            while (str.charAt(idx) != '\\') {
+                                strBuilder.append(str.charAt(idx));
+                                idx++;
+                            }
+
+                            title.setText("회원님의 아이디는 " + strBuilder.toString() + " 입니다.");
                             firstButton.setVisibility(View.GONE);
                             secondButton.setText(getResources().getString(R.string.confirm));
 
@@ -315,7 +357,14 @@ public class CreateOrFindAccountActivity extends BaseActivity {
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         if (response.isSuccessful()) {
                             ResponseBody result = response.body();
-                            Log.d(TAG, "onResponse: 성공 결과\n" + result.toString());
+                            String str = "";
+                            try {
+                                str = result.string();
+                                Log.d(TAG, "onResponse: 성공 결과\n" + str);
+
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
 
                             AlertDialog.Builder builder = new AlertDialog.Builder(CreateOrFindAccountActivity.this);
                             LayoutInflater inflater = getLayoutInflater();
@@ -325,11 +374,20 @@ public class CreateOrFindAccountActivity extends BaseActivity {
                             final Button firstButton = (Button) view.findViewById(R.id.dialog_first_button);
                             final Button secondButton = (Button) view.findViewById(R.id.dialog_second_button);
                             TextView title = view.findViewById(R.id.dialog_title);
-                            try {
-                                title.setText("회원님의 비밀번호는 " + result.string() + " 입니다.");
-                            } catch (IOException e) {
-                                e.printStackTrace();
+                            StringBuilder strBuilder = new StringBuilder();
+
+                            int idx = str.indexOf("ColumnValues");
+                            idx = idx + 14;
+                            while (str.charAt(idx) != '\"') {
+                                idx++;
                             }
+                            idx++;
+                            while (str.charAt(idx) != '\\') {
+                                strBuilder.append(str.charAt(idx));
+                                idx++;
+                            }
+
+                            title.setText("회원님의 비밀번호는 " + strBuilder.toString() + " 입니다.");
                             firstButton.setVisibility(View.GONE);
                             secondButton.setText(getResources().getString(R.string.confirm));
 
